@@ -3,7 +3,7 @@ namespace MailCenter\Sender;
 
 class SenderMandrill implements SenderInterface
 {
-	private $apiKey = '';
+	private $apiKey = '2UhpLTzAZKYpFUpHtJWxyw';
 
 	/**
 	 * @param array $users
@@ -23,7 +23,7 @@ class SenderMandrill implements SenderInterface
 		$ip_pool = false;
 		$send_at = false;
 		$result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);
-		print_r($result);
+		//print_r($result);
 	}
 
 	/**

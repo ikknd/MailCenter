@@ -22,14 +22,23 @@ class DataProvider
 	protected $_db;
 
 	/**
-	 * @param $name string
-	 * @param $db \PDO
+	 * Mailing options
+	 * @var array
 	 */
-	public function __construct($name, $path, $db)
+	protected $_options;
+
+	/**
+	 * @param string $name
+	 * @param string $path
+	 * @param \PDO $db
+	 * @param array $options
+	 */
+	public function __construct($name, $path, $db, $options)
 	{
 		$this->_name = ucfirst($name);
 		$this->_path = $path;
 		$this->_db = $db;
+		$this->_options = $options;
 	}
 
 	/**
@@ -43,7 +52,7 @@ class DataProvider
 
 		if(file_exists($fileName)){
 			require_once $fileName;
-			$data = $className::getData($this->_db);
+			$data = $className::getData($this->_db, $this->_options);
 		} else {
 			throw new \Exception('This data provider is not implemented: '. $className);
 		}

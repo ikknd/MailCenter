@@ -10,6 +10,12 @@ use MailCenter\lib\Registry;
 abstract class MailingAbstract
 {
 	/**
+	 * Mailing options
+	 * @var array
+	 */
+	protected $_options;
+
+	/**
 	 * Mailing emails
 	 * @var array
 	 */
@@ -40,10 +46,12 @@ abstract class MailingAbstract
 	protected $_path;
 
 	/**
+	 * @param array $options
 	 * @param array $emails
 	 */
-	public function __construct($emails)
+	public function __construct($options, $emails)
 	{
+		$this->_options = $options;
 		$this->_emails = $emails;
 		$this->_config = $this->getConfig();
 		$this->_db = Registry::getInstance()->get('db');
@@ -69,7 +77,7 @@ abstract class MailingAbstract
 	 */
 	protected function _getData()
 	{
-		$dataProvider = new DataProvider($this->_name, $this->_path, $this->_db);
+		$dataProvider = new DataProvider($this->_name, $this->_path, $this->_db, $this->_options);
 		return $dataProvider->getData();
 	}
 

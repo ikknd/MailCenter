@@ -23,6 +23,12 @@ class Mailing
 	private $_type;
 
 	/**
+	 * Mailing options
+	 * @var array
+	 */
+	private $_options;
+
+	/**
 	 * Mailing emails
 	 * @var array
 	 */
@@ -33,13 +39,14 @@ class Mailing
 	 *
 	 * @param \stdClass $config
 	 * @param string $type
+	 * @param array $options
 	 * @param array $emails
-	 * Init registry
 	 */
-	public function __construct(\stdClass $config, $type, array $emails = null)
+	public function __construct(\stdClass $config, $type, $options, $emails)
 	{
 		$this->_config = $config;
 		$this->_type = strtolower($type);
+		$this->_options = $options;
 		$this->_emails = $emails;
 		$this->_initRegistry();
 	}
@@ -54,7 +61,7 @@ class Mailing
 
 		if(file_exists($fileName)){
 			require_once $fileName;
-			$mailing = new $className($this->_emails);
+			$mailing = new $className($this->_options, $this->_emails);
 			$mailing->run();
 		} else {
 			throw new \Exception('This mailing type is not implemented: '. $this->_type);

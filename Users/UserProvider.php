@@ -38,12 +38,8 @@ class UserProvider
 	 */
 	public function getUsers()
 	{
-		$users = array();
-
 		if($this->_emails){
-			foreach($this->_emails as $email){
-				$users[]['email'] = $email;
-			}
+			$users = $this->_emails;
 		} else {
 			$users = $this->_getEmailsByMailingName();
 		}

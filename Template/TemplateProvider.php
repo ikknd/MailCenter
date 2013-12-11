@@ -42,6 +42,7 @@ class TemplateProvider
 
 	/**
 	 * @param string $name
+	 * @param string $path
 	 * @param string $storage
 	 * @param string $engine
 	 * @param array $data
