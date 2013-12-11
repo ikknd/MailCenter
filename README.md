@@ -5,7 +5,7 @@ MailCenter
 
 In order to use MailCenter you will need to call Mailing class.
 ```php
-$mailing = new \MailCenter\Mailing($config, $type, $emails);  
+$mailing = new \MailCenter\Mailing($config, $type, $options, $emails);  
 $mailing->run();
 ```
 -------
@@ -22,12 +22,20 @@ $config->password = ‘root’;
 $config->path = ‘/../mailcenter’;      /*Path to Mailings described in section 2*/
 ```
 
--------
+------
 $type – is a name of your mailing, it will be used to find Mailing files described in section 2
 
 Example $type:
 ```php
 $type = ‘appsale’;
+```
+
+------
+$options - is an optional array of options that will be made available to DataProvider
+
+Example $options:
+```php
+$options = array('appId'=>1);
 ```
 
 ------
