@@ -3,7 +3,7 @@ namespace MailCenter\Sender;
 
 class SenderMandrill implements SenderInterface
 {
-	private $apiKey = '2UhpLTzAZKYpFUpHtJWxyw';
+	private $apiKey = '';
 
 	/**
 	 * @param array $users
