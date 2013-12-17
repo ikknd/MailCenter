@@ -14,6 +14,7 @@ $config is a stdClass.
 Example $config:
 ```php
 $config = new stdClass();  
+$config->siteurl = ‘http://www.test.loc’;  
 $config->host = ‘localhost’;  
 $config->port = ‘3306’;  
 $config->dbname = ‘test’;  
