@@ -3,8 +3,6 @@ namespace MailCenter\Sender;
 
 class SenderMandrill implements SenderInterface
 {
-	private $apiKey = '';
-
 	/**
 	 * @param array $users
 	 * @param string $subject
@@ -13,7 +11,7 @@ class SenderMandrill implements SenderInterface
 	public function send($users, $subject, $template)
 	{
 		require_once dirname(__FILE__) . '/../lib/mandrill/Mandrill.php';
-		$mandrill = new \Mandrill($this->apiKey);
+		$mandrill = new \Mandrill(\MailCenter\lib\Registry::getInstance()->get('config')->options['mandrillApiKey']);
 
 
 		$userData = $this->_buildUserData($users);

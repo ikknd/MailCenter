@@ -56,7 +56,7 @@ abstract class MailingAbstract
 		$this->_config = $this->getConfig();
 		$this->_db = Registry::getInstance()->get('db');
 		$this->_name = Registry::getInstance()->get('name');
-		$this->_path = Registry::getInstance()->get('path');
+		$this->_path = Registry::getInstance()->get('config')->path;
 	}
 
 	/**

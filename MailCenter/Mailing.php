@@ -83,14 +83,9 @@ class Mailing
 		};
 		Registry::getInstance()->attach('name', $name);
 
-		$path = function(){
-			return 	$this->_config->path;
+		$config = function(){
+			return 	$this->_config;
 		};
-		Registry::getInstance()->attach('path', $path);
-
-		$siteurl = function(){
-			return 	$this->_config->siteurl;
-		};
-		Registry::getInstance()->attach('siteurl', $siteurl);
+		Registry::getInstance()->attach('config', $config);
 	}
 }
