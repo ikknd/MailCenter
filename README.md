@@ -21,6 +21,7 @@ $config->dbname = ‘test’;
 $config->username = ‘root’;  
 $config->password = ‘root’;  
 $config->path = ‘/../mailcenter’;      /*Path to Mailings described in section 2*/
+$config->options = array('someVar'=>'data');
 ```
 
 ------
