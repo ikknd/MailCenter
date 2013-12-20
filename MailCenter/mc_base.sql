@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 16, 2013 at 07:21 PM
+-- Generation Time: Dec 20, 2013 at 03:23 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.5.5
 
@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `mc_users` (
   `username` varchar(255) DEFAULT NULL,
   `firstname` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `mailing_id` (`mailing_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;

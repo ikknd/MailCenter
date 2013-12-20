@@ -58,7 +58,7 @@ class UserProvider
 	{
 		$sth = $this->_db->prepare('SELECT * FROM mc_users AS mu
 										LEFT JOIN mc_mailing AS mm ON mu.mailing_id = mm.id
-										WHERE mm.name = :name');
+										WHERE mm.name = :name AND mu.active = 1');
 		$sth->setFetchMode(\PDO::FETCH_ASSOC);
 		$sth->execute(array(':name' => $this->_name));
 		$data = $sth->fetchAll();
