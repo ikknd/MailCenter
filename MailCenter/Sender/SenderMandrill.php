@@ -45,6 +45,10 @@ class SenderMandrill implements SenderInterface
 					array(
 						'name'=>'USER',
 						'content'=>$user['email']
+					),
+					array(
+						'name'=>'UNSUBSCRIBE',
+						'content'=> \MailCenter\lib\Helper::unsubscribeLink(\MailCenter\lib\Registry::getInstance()->get('name') ,$user['email'])
 					)
 				)
 			);
@@ -76,6 +80,10 @@ class SenderMandrill implements SenderInterface
 				array(
 					'name' => 'USER',
 					'content' => 'User'
+				),
+				array(
+					'name'=>'UNSUBSCRIBE',
+					'content'=> '#'
 				)
 			),
 			'merge_vars' => $userData['merge_vars']
