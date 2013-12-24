@@ -14,10 +14,6 @@ class Helper
 
 	static public function createHash($var)
 	{
-		$options = [
-			'cost' => 11,
-			'salt' => self::HASH_SALT,
-		];
-		return \password_hash($var, PASSWORD_BCRYPT, $options);
+		return \crypt($var, self::HASH_SALT);
 	}
 }
