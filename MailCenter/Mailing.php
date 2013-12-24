@@ -74,7 +74,7 @@ class Mailing
 	private function _initRegistry()
 	{
 		$db = function(){
-			return new \PDO("mysql:host={$this->_config->host};dbname={$this->_config->dbname}", $this->_config->username, $this->_config->password);
+			return new \PDO("mysql:host={$this->_config->host};port={$this->_config->port};dbname={$this->_config->dbname}", $this->_config->username, $this->_config->password);
 		};
 		Registry::getInstance()->attach('db', $db);
 
