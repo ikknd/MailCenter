@@ -18,6 +18,6 @@ class Helper
 			'cost' => 11,
 			'salt' => self::HASH_SALT,
 		];
-		return password_hash($var, PASSWORD_BCRYPT, $options);
+		return \password_hash($var, PASSWORD_BCRYPT, $options);
 	}
 }
