@@ -8,7 +8,7 @@ class Helper
 
 	static public function unsubscribeLink($type, $email)
 	{
-		$link = \MailCenter\lib\Registry::getInstance()->get('config')->siteurl . '/unsubscribe/' . $type . '/' . $email . '/' . self::createHash($email);
+		$link = \MailCenter\lib\Registry::getInstance()->get('config')->siteurl . '/unsubscribe/' . $type . '/' . $email . '/' . \urlencode(self::createHash($email));
 		return $link;
 	}
 
