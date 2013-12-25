@@ -49,6 +49,10 @@ class SenderMandrill implements SenderInterface
 					array(
 						'name'=>'UNSUBSCRIBE',
 						'content'=> \MailCenter\lib\Helper::unsubscribeLink(\MailCenter\lib\Registry::getInstance()->get('name') ,$user['email'])
+					),
+					array(
+						'name'=>'SUBSCRIBE',
+						'content'=> \MailCenter\lib\Helper::subscribeLink(\MailCenter\lib\Registry::getInstance()->get('name') ,$user['email'])
 					)
 				)
 			);

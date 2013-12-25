@@ -12,6 +12,12 @@ class Helper
 		return $link;
 	}
 
+	static public function subscribeLink($type, $email)
+	{
+		$link = \MailCenter\lib\Registry::getInstance()->get('config')->siteurl . '/subscribe/' . $type . '/' . $email . '/' . \base64_encode(self::createHash($email));
+		return $link;
+	}
+
 	static public function createHash($var)
 	{
 		return \crypt($var, self::HASH_SALT);
