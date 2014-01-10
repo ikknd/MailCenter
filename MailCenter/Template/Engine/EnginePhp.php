@@ -24,7 +24,7 @@ class EnginePhp implements EngineInterface
 		extract($this->_options['data']);
 
 		ob_start();
-		require_once($this->_options['templatePath']);
+		require($this->_options['templatePath']);
 		$renderedTemplate = ob_get_contents();
 		ob_end_clean();
 
