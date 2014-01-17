@@ -35,7 +35,7 @@ class SenderMandrill implements SenderInterface
 		foreach($users as $user){
 			$userData['to'][] = array(
 				'email' => $user['email'],
-				'name' => (isset($user['username'])) ? $user['username'] : 'User',
+				'name' => (isset($user['username'])) ? $user['username'] : $user['email'],
 				'type' => 'to'
 			);
 
@@ -44,7 +44,7 @@ class SenderMandrill implements SenderInterface
 				'vars' => array(
 					array(
 						'name'=>'USER',
-						'content'=>$user['email']
+						'content'=>(isset($user['username'])) ? $user['username'] : 'Member'
 					),
 					array(
 						'name'=>'UNSUBSCRIBE',
